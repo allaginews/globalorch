@@ -2,9 +2,9 @@
 <div>
 <h4>Master</h4>
 <ul>
-  <li>Add Regions</li>
-  <li>Add Clients</li>
-  <li>Add Products</li>
+  <li> <a [routerLink]="['/region']">Add Regions</a></li>
+  <li><a [routerLink]="['/client']">Add Clients</a></li>
+  <li><a [routerLink]="['/product']">Add Products</a></li>
 </ul>
   <router-outlet (activate)="changeRoute()"></router-outlet>
 </div> 

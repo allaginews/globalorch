@@ -4,7 +4,7 @@ import { ClientsComponent } from '../secure/clients/clients.component';
 import { ProductsComponent } from '../secure/products/products.component';
 
 export const SECURE_ROUTES: Routes = [
-   { path: '', redirectTo: 'region', pathMatch: 'full' },
+  // { path: '', redirectTo: 'region', pathMatch: 'full' },
     { path: 'region', component: RegionsComponent },
     { path: 'client', component: ClientsComponent },
     { path: 'product', component: ProductsComponent }

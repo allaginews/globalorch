@@ -7,9 +7,9 @@ import { PUBLIC_ROUTES } from './layout/public/public.routes';
 
 const routes: Routes = [
   { path: '', redirectTo: 'region', pathMatch: 'full' },
-  { path: '', component: PublicComponent,  data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
-  { path: '', component: SecureComponent,  data: { title: 'Secure Views' }, children: SECURE_ROUTES },
-  { path: '**', redirectTo: 'region' }
+  { path: '', component: PublicComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
+  { path: '', component: SecureComponent, data: { title: 'Secure Views' }, children: SECURE_ROUTES },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
