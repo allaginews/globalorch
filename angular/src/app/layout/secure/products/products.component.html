@@ -1,0 +1,31 @@
+<div>
+    <div>
+      <span>Add Product</span>
+      <input type="text" name="region" [(ngModel)]="globalObj.productName">
+    </div>
+    <div>
+      <button *ngIf="!globalObj.editFlag" (click)="onSubmit('add')">Submit</button>
+      <button *ngIf="globalObj.editFlag" (click)="onSubmit('edit')">Edit</button>
+    </div>
+  </div>
+  
+  <div>
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Product Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of globalObj.productList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{list.productName}}</td>
+            <td><a href="javascript:void(0)" (click)="editProduct(list.id, list.productName)">Edit</a>&nbsp;&nbsp;
+              <a href="javascript:void(0)" (click)="deleteProduct(list.id, list.productName)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  

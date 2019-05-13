@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <span>Region</span>
+    <input type="text" name="region" [(ngModel)]="globalObj.regionName">
+  </div>
+  <div>
+    <button *ngIf="!globalObj.editFlag" (click)="onSubmit('add')">Submit</button>
+    <button *ngIf="globalObj.editFlag" (click)="onSubmit('edit')">Edit</button>
+  </div>
+</div>
+
+<div>
+  <!-- <table>
+    <tr>
+      <td>S.No</td>
+      <td>Region Name</td>
+      <td>Action</td>
+    </tr>
+    <tr *ngFor="let list of globalObj.regionList; index as i">
+      <td>{{i+1}}</td>
+      <td>{{list.regionName}}</td>
+      <td><a href="javascript:void(0)" (click)="editRegion(list.id, list.regionName)">Edit</a>&nbsp;&nbsp;
+        <a href="javascript:void(0)" (click)="deleteRegion(list.id, list.regionName)">Delete</a></td>
+      
+    </tr>
+  </table> -->
+
+
+  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Region Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of globalObj.regionList; index as i">
+          <td>{{i+1}}</td>
+          <td>{{list.regionName}}</td>
+          <td><a href="javascript:void(0)" (click)="editRegion(list.id, list.regionName)">Edit</a>&nbsp;&nbsp;
+            <a href="javascript:void(0)" (click)="deleteRegion(list.id, list.regionName)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

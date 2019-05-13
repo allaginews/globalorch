@@ -1,0 +1,31 @@
+<div>
+    <div>
+      <span>Client</span>
+      <input type="text" name="region" [(ngModel)]="globalObj.clientName">
+    </div>
+    <div>
+      <button *ngIf="!globalObj.editFlag" (click)="onSubmit('add')">Submit</button>
+      <button *ngIf="globalObj.editFlag" (click)="onSubmit('edit')">Edit</button>
+    </div>
+  </div>
+  
+  <div>
+    <table datatable [dtOptions]="dtOptions" class="row-border hover">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Client Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of globalObj.clientList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{list.clientName}}</td>
+            <td><a href="javascript:void(0)" (click)="editClient(list.id, list.clientName)">Edit</a>&nbsp;&nbsp;
+              <a href="javascript:void(0)" (click)="deleteClient(list.id, list.clientName)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  

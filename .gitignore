@@ -35,7 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-client/node_modules/
+angular/node_modules/
 .vscode/
 
 # Typescript v1 declaration files
