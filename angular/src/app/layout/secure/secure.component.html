@@ -1,10 +1,14 @@
 
 <div>
-<h4>Master</h4>
+<h4>Master Section</h4>
 <ul>
   <li> <a [routerLink]="['/region']">Add Regions</a></li>
   <li><a [routerLink]="['/client']">Add Clients</a></li>
   <li><a [routerLink]="['/product']">Add Products</a></li>
+</ul>
+<h4>Entry Section</h4>
+<ul>
+  <li> <a [routerLink]="['/addmodule']">Add Modules</a></li>
 </ul>
   <router-outlet (activate)="changeRoute()"></router-outlet>
 </div> 

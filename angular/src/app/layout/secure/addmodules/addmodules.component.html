@@ -1,0 +1,90 @@
+<div>
+  <div>
+    <span>Module Name</span>
+    <input type="text" name="moduleName" (focusout)="assignToUrl()" [(ngModel)]="globalObj.moduleName">
+  </div>
+
+  <div>
+    <span>Slug Name</span>
+    <input type="text" name="moduleUrl" [(ngModel)]="globalObj.moduleUrl">
+  </div>
+
+  <div>
+      <span>Select Client</span>
+    <select name="client" [(ngModel)]="globalObj.selectedClient">
+      <option value=""> PLease Select</option>
+      <option *ngFor="let list of globalObj.clientList;" [value]="list.id">{{list.clientName}}</option>
+    </select>
+  </div>
+
+  <div>
+      <span>Select Region</span>
+      
+    <select name="region" [(ngModel)]="globalObj.selectedRegion" (change)="allFormFields()">
+        <option value=""> Please Select</option>
+      <option *ngFor="let list of globalObj.regionList;" [value]="list.id">{{list.regionName}}</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="globalObj.selectedRegion">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Field Name</th>
+        <th>Action</th>
+        <th>Validation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of globalObj.formFields; index as i">
+        <td>{{i+1}}</td>
+        <td>{{list.value}}</td>
+        <td>
+          <input type="checkbox" name="vehicle" (click)="isCheck(i, list.isCheck)" [value]="list.id"><br>
+
+        </td>
+        <td>
+          <ng-container *ngFor="let valid of list.validation; index as j">
+            <input type="checkbox" name="vehicle" [checked]="valid.isCheck" (click)="validCheck(i, j)" [value]="valid.id">{{valid.value}}<br>
+          </ng-container>
+          </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+            <button type="button" class="btn btn-primary">
+                Submit
+              </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Validation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <input [(ngModel)]="globalObj.required" type="checkbox" name="validate" value="required">Required<br>
+              <input [(ngModel)]="globalObj.unique" type="checkbox" name="validate" value="unique">Unique<br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" click="" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->

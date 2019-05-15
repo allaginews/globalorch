@@ -11,6 +11,7 @@ import { SecureComponent } from './layout/secure/secure.component';
 import { RegionsComponent } from './layout/secure/regions/regions.component';
 import { ClientsComponent } from './layout/secure/clients/clients.component';
 import { ProductsComponent } from './layout/secure/products/products.component';
+import { AddmodulesComponent } from './layout/secure/addmodules/addmodules.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductsComponent } from './layout/secure/products/products.component';
     SecureComponent,
     RegionsComponent,
     ClientsComponent,
-    ProductsComponent
+    ProductsComponent,
+    AddmodulesComponent
   ],
   imports: [
     BrowserModule,
